@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+  --card: 0 0% 3%;
+  --card-foreground: 0 0% 100%;
+  --popover: 0 0% 3%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 120 100% 50%;
+  --primary-foreground: 0 0% 0%;
+  --secondary: 0 0% 0%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 65%;
+  --accent: 0 0% 15%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 100% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 20%;
+  --input: 0 0% 20%;
+  --ring: 120 100% 50%;
+  --radius: 0.5rem;
+}
+
+body {
+  @apply bg-background text-foreground;
+}
+
+/* Add padding to account for fixed header */
+main {
+  padding-top: 0;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+}
+
+/* Custom styles for range inputs */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #00ff05;
+  cursor: pointer;
+  border: 2px solid #000;
+  box-shadow: 0 0 5px rgba(0, 255, 5, 0.5);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #00ff05;
+  cursor: pointer;
+  border: 2px solid #000;
+  box-shadow: 0 0 5px rgba(0, 255, 5, 0.5);
+}
+
+/* Custom styles for select dropdowns */
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2300ff05' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1em;
+}
+
+/* Custom select dropdown styling */
+select {
+  @apply bg-gray-900 border border-gray-800 text-white rounded-lg py-2 px-4 appearance-none cursor-pointer;
+}
+
+select:focus {
+  @apply outline-none border-[#333333];
+}
+
+/* Style the dropdown options */
+select option {
+  @apply bg-gray-900 text-white py-2;
+}
+
+/* Custom checkbox styles */
+input[type="checkbox"] {
+  accent-color: #00ff05;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00ff05;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-fade-in-delay {
+  animation: fadeIn 0.5s ease-out 0.2s forwards;
+  opacity: 0;
+}
